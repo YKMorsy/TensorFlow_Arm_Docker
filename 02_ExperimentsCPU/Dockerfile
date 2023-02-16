@@ -17,6 +17,8 @@ RUN useradd --system --create-home --shell /bin/bash --uid $USERID $USERNAME
 COPY requirements.txt /tmp/requirements.txt
 RUN pip3 install --no-cache-dir -r /tmp/requirements.txt \
 && rm /tmp/requirements.txt
+RUN pip3 install --no-cache-dir https://github.com/bitsy-ai/tensorflow-arm-bin/releases/download/v2.4.0/tensorflow-2.4.0-cp37-none-linux_aarch64.whl
+
 
 # Switch user to the created non-root one and start jupyter notebook (by default)
 USER $USERNAME
